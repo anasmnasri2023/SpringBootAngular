@@ -17,6 +17,7 @@ public class Payement {
     private LocalDate date;
     private double amount;
     private PayementType type;
+    @Enumerated(EnumType.STRING)
     private PayementStatus status;
     private String file;
     @ManyToOne
