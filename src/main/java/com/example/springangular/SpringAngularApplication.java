@@ -51,7 +51,7 @@ public class SpringAngularApplication {
                     int statusIndex = random.nextInt(payementStatuses.length);
 
                     Payement payement = Payement.builder()
-                            .amount(1000 + random.nextInt(20000)) // Correction ici
+                            .amount(1000 + (int)(Math.random()*20000)) // Correction ici
                             .type(payementTypes[typeIndex])
                             .status(payementStatuses[statusIndex]) // Ajout de statuts variés
                             .date(LocalDate.now())
