@@ -25,6 +25,8 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {provideAnimationsAsync} from '@angular/platform-browser/animations/async';
 import {AuthGuard} from './guards/auth.guard';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -36,8 +38,9 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
     LoadPaymentsComponent,
     LoginComponent,
     StudentsComponent,
+    DashboardComponent,
     PaymentsComponent,
-    DashboardComponent
+
   ],
   imports: [
     BrowserModule,
@@ -52,13 +55,13 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTableModule,
+    MatPaginatorModule
 
 
   ],
-  providers: [
-    provideAnimationsAsync(),
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

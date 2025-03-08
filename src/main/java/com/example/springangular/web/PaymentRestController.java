@@ -24,6 +24,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping("/api") // Préfixe pour toutes les routes
 public class PaymentRestController {
 
