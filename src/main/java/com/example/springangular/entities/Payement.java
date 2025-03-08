@@ -16,6 +16,7 @@ public class Payement {
     private Long id;
     private LocalDate date;
     private double amount;
+    @Enumerated(EnumType.STRING)
     private PayementType type;
     @Enumerated(EnumType.STRING)
     private PayementStatus status;
