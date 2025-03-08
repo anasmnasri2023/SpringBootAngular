@@ -10,6 +10,7 @@ import {StudentsComponent} from './students/students.component';
 import {PaymentsComponent} from './payments/payments.component';
 import {AdminTemplateComponent} from './admin-template/admin-template.component';
 import {AuthGuard} from './guards/auth.guard';
+import {AuthorizationGuard} from './guards/authorization.guard';
 
 const routes: Routes = [
 
@@ -20,7 +21,8 @@ const routes: Routes = [
     children:[
       {path: "home",component : HomeComponent},
       {path: "profile",component : ProfileComponent},
-      {path: "LoadStudents",component : LoadStudentsComponent},
+      {path: "LoadStudents",component : LoadStudentsComponent,
+      canActivate:[AuthorizationGuard],data : {roles : ['ADMIN']}},
       {path: "LoadPayments",component : LoadPaymentsComponent},
       {path: "dashboard",component : DashboardComponent},
       {path: "students",component : StudentsComponent},
