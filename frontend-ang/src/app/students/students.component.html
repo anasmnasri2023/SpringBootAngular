@@ -22,6 +22,9 @@
           <td>{{ student.lastName }}</td>
           <td>{{ student.code }}</td>
           <td>{{ student.programId }}</td>
+          <td>
+            <button (click)="studentPayments(student)" mat-raised-button color="primary">Payments</button>
+          </td>
         </tr>
         </tbody>
       </table>
