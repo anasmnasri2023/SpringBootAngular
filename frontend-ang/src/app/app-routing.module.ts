@@ -30,7 +30,7 @@ const routes: Routes = [
       {path: "students",component : StudentsComponent},
       {path: "payments",component : PaymentsComponent},
       {path: "student-details/:code",component : StudentDetailsComponent},
-      {path: "new-payment/:student",component : NewPaymentComponent},
+      {path: "new-payment/:studentCode",component : NewPaymentComponent},
 
     ]},
 

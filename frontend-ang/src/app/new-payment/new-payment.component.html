@@ -1,1 +1,39 @@
-<p>new-payment works!</p>
+<div class="container">
+  <mat-card [formGroup]="paymentFormGroup">
+    <mat-card-header>
+      <mat-card-title>New Payment</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field appearance="outline">
+        <mat-label>
+          Payment Date
+        </mat-label>
+        <input matInput formControlName="date">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>
+          Amount
+        </mat-label>
+        <input matInput formControlName="amount">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>
+         Type
+        </mat-label>
+        <input matInput formControlName="type">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>
+          Student Code
+        </mat-label>
+        <input matInput formControlName="studentCode">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>
+          File
+        </mat-label>
+        <input matInput type="file" formControlName="file">
+      </mat-form-field>
+    </mat-card-content>
+  </mat-card>
+</div>

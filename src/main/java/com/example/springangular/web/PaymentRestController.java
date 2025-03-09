@@ -82,7 +82,7 @@ public class PaymentRestController {
         return  this.paymentService.updatePaymentStatus(status,id);
     }
     private PaymentService paymentService;
-    @PostMapping(path = "payments", consumes = MediaType.MULTIPART_FORM_DATA_VALUE) /*ajout de données structurées*/
+    @PostMapping(path = "/payments", consumes = MediaType.MULTIPART_FORM_DATA_VALUE) /*ajout de données structurées*/
     public Payement savePayment(@RequestParam MultipartFile file,
                                 @RequestParam LocalDate date,
                                 @RequestParam double amount,
