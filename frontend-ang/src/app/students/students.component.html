@@ -1,13 +1,30 @@
 <div class="container">
   <mat-card>
     <mat-card-header>
-      <mat-card-title>
-       Students
-      </mat-card-title>
+      <mat-card-title>Students</mat-card-title>
     </mat-card-header>
     <mat-divider></mat-divider>
     <mat-card-content>
-      Students
+      <table class="table">
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Code</th>
+          <th>Program ID</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let student of students">
+          <td>{{ student.id }}</td>
+          <td>{{ student.firstName }}</td>
+          <td>{{ student.lastName }}</td>
+          <td>{{ student.code }}</td>
+          <td>{{ student.programId }}</td>
+        </tr>
+        </tbody>
+      </table>
     </mat-card-content>
   </mat-card>
 </div>

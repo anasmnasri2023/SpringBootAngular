@@ -28,16 +28,16 @@ public class SpringAngularApplication {
         return args -> {
             if (studentRepository.count() == 0) {  // Vérifie si des étudiants existent déjà
                 studentRepository.save(Student.builder().id(UUID.randomUUID().toString())
-                        .firstName("Anas").code("111111").programId("SDIA")
+                        .firstName("Anas").lastname("mnasri").code("111111").programId("SDIA")
                         .build());
                 studentRepository.save(Student.builder().id(UUID.randomUUID().toString())
-                        .firstName("Messi").code("22222").programId("SDIA")
+                        .firstName("Messi").lastname("lionel").code("22222").programId("SDIA")
                         .build());
                 studentRepository.save(Student.builder().id(UUID.randomUUID().toString())
-                        .firstName("Lionel").code("33333").programId("GLSID")
+                        .firstName("Lionel").lastname("yamine Lamal").code("33333").programId("GLSID")
                         .build());
                 studentRepository.save(Student.builder().id(UUID.randomUUID().toString())
-                        .firstName("Mamadou").code("44444").programId("BDCC")
+                        .firstName("Mamadou").lastname("Boubwena").code("44444").programId("BDCC")
                         .build());
             }
 
