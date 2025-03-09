@@ -7,3 +7,6 @@
   border: solid 1px black;
   padding: 10px;
 }
+.student-card{
+  display: inline-block;
+}
