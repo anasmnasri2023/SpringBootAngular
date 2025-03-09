@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {StudentsService} from '../services/students.service';
 import {Payment} from '../model/students.model';
 import {MatTableDataSource} from '@angular/material/table';
@@ -17,7 +17,8 @@ export class StudentDetailsComponent implements OnInit{
   public displayedColumns: string[]=['id','date','amount','type','status','firstName'];
 
   constructor(private activatedRoute: ActivatedRoute,
-             private studentsService : StudentsService) {
+             private studentsService : StudentsService,
+             private  router:Router) {
   }
   ngOnInit() {
     this.studentCode =this.activatedRoute.snapshot.params['code'];
@@ -32,4 +33,8 @@ export class StudentDetailsComponent implements OnInit{
     });
   }
 
+  newPayment() {
+    this.router.navigateByUrl(`/admin/new-payment/${this.studentCode}`)
+
+  }
 }

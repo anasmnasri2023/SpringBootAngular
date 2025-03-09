@@ -29,6 +29,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSort, MatSortModule} from '@angular/material/sort';
 import { StudentDetailsComponent } from './student-details/student-details.component';
+import { NewPaymentComponent } from './new-payment/new-payment.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { StudentDetailsComponent } from './student-details/student-details.compo
     DashboardComponent,
     PaymentsComponent,
     StudentDetailsComponent,
+    NewPaymentComponent,
 
   ],
   imports: [
