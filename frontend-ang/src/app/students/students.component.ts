@@ -10,14 +10,16 @@ import {Student} from '../model/students.model';
   styleUrl: './students.component.css'
 })
 export class StudentsComponent implements OnInit{
-  students!:Array<Student>
+  students!:Array<Student>;
+  studentdataSource :MatTableDataSource<Student>;
+  displayedColumns : string[]=['id','firstName','lastName','code','programId'];
   constructor(private studentsService : StudentsService) {
   }
 ngOnInit() {
     this.studentsService.getAllStudents().subscribe({
       next: value => {
         this.students=value;
-
+        this.studentdataSource=new MatTableDataSource<Student>(this.students);
 
       },
       error:err => {

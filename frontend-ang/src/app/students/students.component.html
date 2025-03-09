@@ -27,4 +27,35 @@
       </table>
     </mat-card-content>
   </mat-card>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>  Students    </mat-card-title>
+    </mat-card-header>
+
+      <mat-card-content>
+          <table mat-table [dataSource]="studentdataSource">
+            <ng-container matColumnDef="id">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+              <td mat-cell *matCellDef="let student"> {{student.id}} </td>
+            </ng-container>
+            <ng-container matColumnDef="firstName">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> First Name </th>
+              <td mat-cell *matCellDef="let student"> {{student.firstName}} </td>
+            </ng-container>
+            <ng-container matColumnDef="lastName">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </th>
+              <td mat-cell *matCellDef="let student"> {{student.lastName}} </td>
+            </ng-container>
+            <ng-container matColumnDef="code">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Code </th>
+              <td mat-cell *matCellDef="let student"> {{student.code}} </td>
+            </ng-container>
+            <ng-container matColumnDef="programId">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Program ID </th>
+              <td mat-cell *matCellDef="let student"> {{student.programId}} </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>          </table>
+        </mat-card-content>
+  </mat-card>
 </div>
