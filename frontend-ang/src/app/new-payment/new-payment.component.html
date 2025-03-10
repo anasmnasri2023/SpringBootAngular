@@ -21,7 +21,10 @@
         <mat-label>
          Type
         </mat-label>
-        <mat-select>
+        <mat-select formControlName="type">
+          <mat-option *ngFor="let t of paymentTypes" [value]="t">{{ t }}</mat-option>
+
+
 
         </mat-select>
       </mat-form-field>
