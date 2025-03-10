@@ -1,5 +1,6 @@
 package com.example.springangular.web;
 
+import com.example.springangular.dtos.NewPaymentDTO;
 import com.example.springangular.entities.Payement;
 import com.example.springangular.entities.PayementStatus;
 import com.example.springangular.entities.PayementType;
@@ -83,13 +84,10 @@ public class PaymentRestController {
     }
     private PaymentService paymentService;
     @PostMapping(path = "/payments", consumes = MediaType.MULTIPART_FORM_DATA_VALUE) /*ajout de données structurées*/
-    public Payement savePayment(@RequestParam MultipartFile file,
-                                @RequestParam LocalDate date,
-                                @RequestParam double amount,
-                                @RequestParam PayementType type,
-                                @RequestParam String studentCode) throws IOException {
+    public Payement savePayment(@RequestParam("file") MultipartFile file,
+                                NewPaymentDTO newPaymentDTO) throws IOException {
 
-return this.paymentService.savePayment(file,date,amount,type,studentCode);
+return this.paymentService.savePayment(file,newPaymentDTO);
 
     }
     @GetMapping(path = "/paymentFile/{paymentId}", produces = MediaType.MULTIPART_FORM_DATA_VALUE)

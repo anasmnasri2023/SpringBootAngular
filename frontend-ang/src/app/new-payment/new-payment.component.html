@@ -11,37 +11,38 @@
         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
+
       <mat-form-field appearance="outline">
-        <mat-label>
-          Amount
-        </mat-label>
-        <input matInput formControlName="amount">
+        <mat-label>Amount</mat-label>
+        <input matInput type="number" formControlName="amount" min="1">
       </mat-form-field>
+
       <mat-form-field appearance="outline">
-        <mat-label>
-         Type
-        </mat-label>
+        <mat-label>Type</mat-label>
         <mat-select formControlName="type">
           <mat-option *ngFor="let t of paymentTypes" [value]="t">{{ t }}</mat-option>
         </mat-select>
       </mat-form-field>
+
       <mat-form-field appearance="outline">
-        <mat-label>
-          Student Code
-        </mat-label>
-        <input matInput formControlName="studentCode">
+        <mat-label>Student Code</mat-label>
+        <input matInput formControlName="studentCode" readonly>
       </mat-form-field>
+
       <mat-form-field appearance="outline">
-        <mat-label>
-          File
-        </mat-label>
+        <mat-label>File</mat-label>
         <button type="button" mat-icon-button matPrefix (click)="f_input.click()">
           <mat-icon>attach_file</mat-icon>
         </button>
         <input matInput readonly formControlName="fileName">
         <input type="file" hidden #f_input (change)="selectFile($event)" accept="application/pdf">
       </mat-form-field>
+
+      <div *ngIf="pdfFileUrl">
+        <a [href]="pdfFileUrl" target="_blank" mat-button color="accent">Voir le fichier</a>
+      </div>
     </mat-card-content>
+
     <mat-card-actions>
       <button (click)="savePayment()" mat-raised-button color="primary">Save Payment</button>
     </mat-card-actions>

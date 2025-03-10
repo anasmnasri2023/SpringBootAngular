@@ -22,5 +22,9 @@ export class StudentsService {
     return   this.http.get<Array<Payment>>(`${environment.backendHost}/api/students/${code}/payments`);
 
   }
+  public savePayment(formData:any):Observable<Payment>{
+    return   this.http.post<Payment>(`${environment.backendHost}/api/payments`,formData);
+
+  }
 
 }

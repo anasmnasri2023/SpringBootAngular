@@ -1,5 +1,6 @@
 package com.example.springangular.services;
 
+import com.example.springangular.dtos.NewPaymentDTO;
 import com.example.springangular.entities.Payement;
 import com.example.springangular.entities.PayementStatus;
 import com.example.springangular.entities.PayementType;
@@ -32,10 +33,7 @@ public class PaymentService {
 
     private PaymentRepository paymentRepository;
     public Payement savePayment(MultipartFile file,
-                                 LocalDate date,
-                                double amount,
-                                 PayementType type,
-                                String studentCode) throws IOException {
+                                NewPaymentDTO newPaymentDTO) throws IOException {
 
         Path folderPath = Paths.get(System.getProperty("user.home"), "spring-angular", "payments");
         if (!Files.exists(folderPath)) {
@@ -46,14 +44,14 @@ public class PaymentService {
         Path filePath = Paths.get(System.getProperty("user.home"), "spring-angular", "payments", fileName);
         Files.copy(file.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
 
-        Student student = studentRepository.findByCode(studentCode);
+        Student student = studentRepository.findByCode(newPaymentDTO.getStudentCode());
 
 
         Payement payement = Payement.builder()
-                .date(date)
-                .type(type)
+                .date(newPaymentDTO.getDate())
+                .type(newPaymentDTO.getType())
                 .student(student)
-                .amount(amount)
+                .amount(newPaymentDTO.getAmount())
                 .file(filePath.toUri().toString())
                 .status(PayementStatus.CREATED)
                 .build();
