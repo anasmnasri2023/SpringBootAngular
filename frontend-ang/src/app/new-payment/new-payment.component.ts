@@ -13,6 +13,8 @@ export class NewPaymentComponent implements OnInit{
   paymentFormGroup!: FormGroup;
   studentCode!:string;
   paymentTypes :string[]=[];
+  pdfFileUrl!:string;
+
   constructor(private fb:FormBuilder,private activatedRoute: ActivatedRoute) {
   }
   ngOnInit() {
@@ -28,8 +30,24 @@ export class NewPaymentComponent implements OnInit{
       amount : this.fb.control(''),
       type : this.fb.control(''),
       studentCode : this.fb.control(this.studentCode),
-      file : this.fb.control(''),
+      fileSource : this.fb.control(''),
+      fileName: this.fb.control(''),
     });
   }
 
+  selectFile(event: any) {
+    if(event.target.files.length>0){
+      let file = event.target.files[0];
+      this.paymentFormGroup.patchValue({
+        fileSource : file,
+        fileName:file.name,
+      });
+      this.pdfFileUrl =  URL.createObjectURL(file);
+    }
+
+  }
+
+  savePayment() {
+
+  }
 }

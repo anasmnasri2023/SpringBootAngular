@@ -23,9 +23,6 @@
         </mat-label>
         <mat-select formControlName="type">
           <mat-option *ngFor="let t of paymentTypes" [value]="t">{{ t }}</mat-option>
-
-
-
         </mat-select>
       </mat-form-field>
       <mat-form-field appearance="outline">
@@ -38,8 +35,15 @@
         <mat-label>
           File
         </mat-label>
-        <input matInput type="fiile" formControlName="file">
+        <button type="button" mat-icon-button matPrefix (click)="f_input.click()">
+          <mat-icon>attach_file</mat-icon>
+        </button>
+        <input matInput readonly formControlName="fileName">
+        <input type="file" hidden #f_input (change)="selectFile($event)" accept="application/pdf">
       </mat-form-field>
     </mat-card-content>
+    <mat-card-actions>
+      <button (click)="savePayment()" mat-raised-button color="primary">Save Payment</button>
+    </mat-card-actions>
   </mat-card>
 </div>
