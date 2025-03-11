@@ -27,4 +27,8 @@ export class StudentsService {
 
   }
 
+  getPaymenDetails(paymentId: number) {
+    return this.http.get(`${environment.backendHost}/api/paymentFile/{{paymentId}}`,
+      {responseType:'blob'})
+  }
 }

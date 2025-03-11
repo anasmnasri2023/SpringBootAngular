@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { paymentType } from '../model/students.model';
+import {Payment, paymentType} from '../model/students.model';
 import { StudentsService } from '../services/students.service';
 
 @Component({
@@ -15,6 +15,7 @@ export class NewPaymentComponent implements OnInit {
   studentCode!: string;
   paymentTypes: string[] = [];
   pdfFileUrl!: string;
+  showProgress : boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -64,10 +65,7 @@ export class NewPaymentComponent implements OnInit {
   }
 
   savePayment() {
-    if (this.paymentFormGroup.invalid) {
-      alert('Veuillez remplir tous les champs correctement avant de sauvegarder.');
-      return;
-    }
+
 
     let date = new Date(this.paymentFormGroup.value.date);
     let formattedDate = date.getDate()+"/"+(date.getMonth()+1)+date.getFullYear();
@@ -80,7 +78,8 @@ export class NewPaymentComponent implements OnInit {
     formData.set('file', this.paymentFormGroup.value.fileSource);
 
     this.studentsService.savePayment(formData).subscribe({
-      next: () => {
+      next: value => {
+        this.showProgress=false;
         alert('Payment Saved Successfully!');
       },
       error: (err) => {

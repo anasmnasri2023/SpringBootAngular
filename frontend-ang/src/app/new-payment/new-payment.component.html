@@ -43,6 +43,9 @@
 
     <mat-card-actions>
       <button (click)="savePayment()" mat-raised-button color="primary">Save Payment</button>
+      <mat-spinner *ngIf="showProgress">
+
+      </mat-spinner>
     </mat-card-actions>
   </mat-card>
   <mat-card>
