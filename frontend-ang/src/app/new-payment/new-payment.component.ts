@@ -70,7 +70,7 @@ export class NewPaymentComponent implements OnInit {
     }
 
     let date = new Date(this.paymentFormGroup.value.date);
-    let formattedDate = date.toLocaleDateString('fr-FR');
+    let formattedDate = date.getDate()+"/"+(date.getMonth()+1)+date.getFullYear();
 
     let formData: FormData = new FormData();
     formData.set('date', formattedDate);
