@@ -9,7 +9,7 @@ import {ActivatedRoute} from '@angular/router';
   styleUrl: './payment-details.component.css'
 })
 export class PaymentDetailsComponent implements OnInit{
-  paymentId:number;
+  paymentId!:number;
   pdfFileUrl:any;
   constructor(private studentsService : StudentsService , private route:ActivatedRoute) {
   }
