@@ -4,3 +4,10 @@ mat-form-field{
 .payment-form{
   width: 500px;
 }
+.pdf-viewer{
+  height: 100vh;
+  display: block;
+  margin: 0 auto;
+  max-width: 1200px;
+
+}

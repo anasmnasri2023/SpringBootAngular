@@ -45,4 +45,26 @@
       <button (click)="savePayment()" mat-raised-button color="primary">Save Payment</button>
     </mat-card-actions>
   </mat-card>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Payment File</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <pdf-viewer
+        [src]="pdfFileUrl"
+        [original-size]="true"
+        [render-text]="true"
+        [rotation]="8"
+        [show-all]="true"
+        [fit-to-page]="true"
+        [zoom]="1"
+        [zoom-scale]="'page-width'"
+        [external-link-target]="'blank'"
+        [autoresize]="true"
+        [show-borders]="false"
+        class="pdf-viewer"
+        (after-load-complete)="afterLoadComplete($event)"
+      ></pdf-viewer>
+    </mat-card-content>
+  </mat-card>
 </div>

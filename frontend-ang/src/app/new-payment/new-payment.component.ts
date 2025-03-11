@@ -88,4 +88,9 @@ export class NewPaymentComponent implements OnInit {
       },
     });
   }
+
+  afterLoadComplete(event: any){
+    console.log(event);
+
+  }
 }
