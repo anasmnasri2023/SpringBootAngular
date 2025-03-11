@@ -26,7 +26,7 @@
 
       <mat-form-field appearance="outline">
         <mat-label>Student Code</mat-label>
-        <input matInput formControlName="studentCode" readonly>
+        <input matInput formControlName="studentCode" >
       </mat-form-field>
 
       <mat-form-field appearance="outline">
@@ -38,9 +38,7 @@
         <input type="file" hidden #f_input (change)="selectFile($event)" accept="application/pdf">
       </mat-form-field>
 
-      <div *ngIf="pdfFileUrl">
-        <a [href]="pdfFileUrl" target="_blank" mat-button color="accent">Voir le fichier</a>
-      </div>
+
     </mat-card-content>
 
     <mat-card-actions>

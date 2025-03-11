@@ -74,17 +74,17 @@ export class NewPaymentComponent implements OnInit {
 
     let formData: FormData = new FormData();
     formData.set('date', formattedDate);
-    formData.set('amount', this.paymentFormGroup.getRawValue().amount);
-    formData.set('type', this.paymentFormGroup.getRawValue().type);
-    formData.set('studentCode', this.studentCode);
-    formData.set('file', this.paymentFormGroup.getRawValue().fileSource);
+    formData.set('amount', this.paymentFormGroup.value.amount);
+    formData.set('type', this.paymentFormGroup.value.type);
+    formData.set('studentCode', this.paymentFormGroup.value.studentCode);
+    formData.set('file', this.paymentFormGroup.value.fileSource);
 
     this.studentsService.savePayment(formData).subscribe({
       next: () => {
         alert('Payment Saved Successfully!');
       },
       error: (err) => {
-        console.error('Erreur lors de l\'enregistrement du paiement :', err);
+        console.log(err);
       },
     });
   }
